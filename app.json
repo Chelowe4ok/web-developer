@@ -1,8 +1,7 @@
 {
-  "name": "Marchuk Volodumur portfolio",
+  "name": "Marchuk-Volodumur-portfolio",
   "description": "Portfolio web developer",
   "repository": "https://github.com/Chelowe4ok/web-developer",
   "logo": "https://avatars1.githubusercontent.com/u/14956735?v=4&u=e25638183a4ce1220b0dd1d2a5d43c724d97504f&s=400",
-  "keywords": ["angular-2", "node", "express", "heroku"],
-  "image": "heroku/nodejs"
+  "keywords": ["angular-2", "node", "express", "heroku"]
 }
