@@ -15,6 +15,7 @@ enableProdMode();
 
 const routing = RouterModule.forRoot([
     { path: '',      component: WelcomeComponent },
+    { path: 'cool',      component: WelcomeComponent },
     { path: 'account-list', component: AccountListComponent }
 ]);
 
