@@ -2,6 +2,9 @@
   "name": "Portfolio-Volodymyr-Marchuk",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "8.1.0"
+  },
   "scripts": {
     "build": "webpack --progress",
     "build:prod": "webpack -p --progress",
