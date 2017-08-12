@@ -10,9 +10,15 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.ts$/, loader: 'ts'},
-      {test: /\.html$/, loader: 'raw'},
-      {test: /\.css$/, loader: 'raw'}
+      {test: /\.ts$/, loader: 'ts-loader'},
+      {test: /\.html$/, loader: 'raw-loader'},
+      {test: /\.css$/, loader: 'raw-loader' },
+      {test: /\.(png|jpg)$/, loader: "file-loader", query: {
+        name: '[name].[hash:7].[ext]',
+        publicPath: '/client/assets/',
+          outputPath: '/assets/'
+      }
+      }
     ]
   },
   resolve: {

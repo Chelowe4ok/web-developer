@@ -7,6 +7,7 @@ import {HttpModule} from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import {AppComponent} from './app/app.component';
+import {WelcomeDirective} from './welcome/welcome.directive';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {AccountListComponent} from './account-list/account-list.component';
 
@@ -15,7 +16,6 @@ enableProdMode();
 
 const routing = RouterModule.forRoot([
     { path: '',      component: WelcomeComponent },
-    { path: 'cool',      component: WelcomeComponent },
     { path: 'account-list', component: AccountListComponent }
 ]);
 
@@ -26,8 +26,9 @@ const routing = RouterModule.forRoot([
     		  FormsModule,
     		  ReactiveFormsModule],
     declarations: [AppComponent,
+                   WelcomeDirective,
     			   WelcomeComponent,
-    			   AccountListComponent
+    			   AccountListComponent,
              ],
     //providers: [],
     bootstrap: [AppComponent]

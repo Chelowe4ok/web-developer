@@ -1,0 +1,23 @@
+<div class='responsive-devices' [ngClass]="{'responsive-width': isResponsiveWidth, 'responsive-height': isResponsiveHeight}" (window:resize)="onResize($event, responsive)" #responsive>
+    <img src='./../../assets/images/responsive-devices.png'>
+    <div class='content-responsive-devices' [style.width.px]="contentWidth" [style.height.px]="contentHeight" [ngClass]="{'content-responsive-width': isResponsiveWidth, 'content-responsive-height': isResponsiveHeight}">
+        <div class='desctop-device'>
+            <h1>Marchuk Volodymyr</h1>
+            <p>Web developer</p>
+            <img src='./../../assets/images/Volodymyr-Marchuk-photo.jpg' alt="Volodymyr Marchuk photo" class='photo'>
+        </div>
+        <div class="laptop-device">
+            <video loop muted controls autoplay>
+                <source src="./../../assets/videos/Minions-Teamwork.mp4" type="video/mp4">
+                <source src="./../../assets/videos/Minions-Teamwork.webm" type="video/webm">
+                <source src="./../../assets/videos/Minions-Teamwork.3gp" type="video/3gp">
+            </video>
+        </div>
+        <div class="tablet-device">
+        </div>
+        <div class="phone-device">
+        </div>
+    </div>
+</div>
+
+<div class='table'></div>
