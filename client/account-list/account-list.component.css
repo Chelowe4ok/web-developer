@@ -1,0 +1,14 @@
+.projects-background {
+    position: absolute;
+    width: 100vw;
+    height: calc(100vh - 52px);
+    -webkit-filter: blur(7px);
+    filter: blur(7px);
+    background: rgba(245, 245, 245, 0.91);
+}
+
+#projects{
+    padding-left: 5%;
+    padding-right: 5%;
+    filter: blur(0px);
+}

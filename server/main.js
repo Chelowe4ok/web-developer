@@ -32,6 +32,11 @@ app.get('/cool', function(request, response) {
   response.send(cool());
 });
 
+app.get('/app', function (request, response) {
+    console.log('app status 200');
+    response.sendStatus(200);
+});
+
 app.listen(app.get('port'), function() {
     console.log('Angular2 fullstack listening on port '+app.get('port'));
 });

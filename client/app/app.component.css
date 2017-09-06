@@ -35,6 +35,10 @@
     } 
 }
 
+.navbar {
+    z-index: 99;
+    margin-bottom: 0px;
+}
 
 .navbar-default {
     background: transparent;

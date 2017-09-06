@@ -35,6 +35,11 @@
     "rxjs": "^5.4.2",
     "systemjs": "0.19.27",
     "three": "^0.82.1",
+    "three-firstperson-vr-controls": "^0.1.0",
+    "three-orbit-controls": "^82.1.0",
+    "three-orbitcontrols-ts": "^0.1.2",
+    "three-vr": "^0.2.0",
+    "three-vrcontrols-module": "^2.0.1",
     "zone.js": "^0.8.4"
   },
   "devDependencies": {
