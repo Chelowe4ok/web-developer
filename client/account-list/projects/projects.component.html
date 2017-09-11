@@ -1,16 +1,15 @@
 
+<div class="short-description col-xs-12" [ngClass]="{'active': selectedProject} ">
+    <h2>
+        {{selectedProject.name | uppercase}} is my project
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+</div>
+
 <div class="col-xs-4 project" *ngFor="let project of projects"
 [class.selected]="project === selectedProject"
 (click)="onSelect(project)">
     <div class="project-thumbnail">
         <img src="{{project.image}}" alt="{{project.name}}" title="{{project.name}}" />
     </div>
-</div>
-
-
-<div *ngIf="selectedProject">
-    <h2>
-        {{selectedProject.name | uppercase}} is my project
-    </h2>
-    <button (click)="gotoDetail()">View Details</button>
 </div>

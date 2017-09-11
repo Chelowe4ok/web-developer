@@ -1,0 +1,21 @@
+@import './../../share/scss';
+
+.project-thumbnail img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.short-description {
+    @include transition(opacity, 2s, ease-out, 0s);
+    @include transition(max-height, 1s, ease-out, 0s);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    text-align: center;
+    height: 300px;
+}
+
+.active {
+    opacity: 1;
+    max-height: 100%;
+}

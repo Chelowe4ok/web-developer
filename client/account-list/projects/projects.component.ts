@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'projects-list',
     template: require('./projects.component.html'),
-    styles: require('./projects.component.css')
+    styles: [require('./projects.component.scss')],
 })
 
 export class ProjectsComponent {

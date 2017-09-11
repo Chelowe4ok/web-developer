@@ -7,7 +7,7 @@ import { OrbitControls } from 'three-orbitcontrols-ts';
 @Component({
     selector:'welcome',
     template: require('./welcome.component.html'),
-    styles: [require('./welcome.component.css')],
+    styles: [require('./welcome.component.scss')],
     })
 export class WelcomeComponent{
 

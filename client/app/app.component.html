@@ -1,21 +1,33 @@
 <div class='content'>
-    <nav class="navbar">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span> 
-          </button>
+    <div class="menu-btn">
+        <div id="nav-icon2" [ngClass]="{'open': isOpen}" (click)="toggle()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class='nav navbar-nav navbar-right'>
-                <li><a [routerLink]="['/']">About me</a></li>
+    </div>
+    <div  [ngClass]="{'active': isOpen}" class="background-effect"></div>
+    <nav [ngClass]="{'active': isOpen}" class="navbar">
+        <div class="main-nav nav-content">
+            <ul class='nav navbar-nav'>
+                <li><a [routerLink]="['/']">Home</a></li>
+                <li><a [routerLink]="['/about']">About Me</a></li>
                 <li><a [routerLink]="['/account-list']">My projects</a></li>
-          </ul>
+                <li><a [routerLink]="['/contact']">Contats</a></li>
+            </ul>
         </div>
-      </div>
+        <div class="sub-nav nav-content">
+            <ul class='nav navbar-nav'>
+                <li><a [routerLink]="['/']">Facebook</a></li>
+                <li><a [routerLink]="['/account-list']">LindkedIn</a></li>
+            </ul>
+        </div>
     </nav>
+
+
     <div class='container'>
         <router-outlet></router-outlet>
     </div>

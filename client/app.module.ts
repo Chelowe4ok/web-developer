@@ -14,19 +14,25 @@ import { ProjectsComponent } from './account-list/projects/projects.component';
 import { ProjectDetailComponent } from './account-list/projects/project-detail/project-detail.component';
 import { AppService } from './app/app.service';
 
+import { AboutComponent } from './about/about.component';
+
+import { ContactComponent } from './contact/contact.component';
+
 import {enableProdMode} from '@angular/core';
 enableProdMode();
 
 const routing = RouterModule.forRoot([
-    { path: '',      component: WelcomeComponent },
+    { path: '', component: WelcomeComponent },
     { path: 'account-list', component: AccountListComponent },
+    { path: 'contact', component: ContactComponent },
     { path: 'detail/:id', component: ProjectDetailComponent },
-    { path: 'app', component: AccountListComponent }
+    { path: 'about', component: AboutComponent },
 ]);
+
 
 @NgModule({
     imports: [BrowserModule,
-    		  routing,
+        routing,
     		  HttpModule,
     		  FormsModule,
     		  ReactiveFormsModule],
@@ -36,6 +42,8 @@ const routing = RouterModule.forRoot([
         AccountListComponent,
         ProjectsComponent,
         ProjectDetailComponent,
+        AboutComponent,
+        ContactComponent,
              ],
     providers: [AppService],
     bootstrap: [AppComponent]

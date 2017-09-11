@@ -1,0 +1,16 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #000;
+
+@mixin transition($property, $duration, $effect, $delay) {
+    -webkit-transition: $property $duration $effect $delay;
+    -moz-transition: $property $duration $effect $delay;
+    -o-transition: $property $duration $effect $delay;
+    transition: $property $duration $effect $delay;
+}
+
+@mixin transition_2($property, $duration, $effect, $delay, $property_2, $duration_2, $effect_2, $delay_2) {
+    -webkit-transition: $property $duration $effect $delay, $property_2 $duration_2 $effect_2 $delay_2;
+    -moz-transition: $property $duration $effect $delay, $property_2 $duration_2 $effect_2 $delay_2;
+    -o-transition: $property $duration $effect $delay, $property_2 $duration_2 $effect_2 $delay_2;
+    transition: $property $duration $effect $delay, $property_2 $duration_2 $effect_2 $delay_2;
+}
