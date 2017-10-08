@@ -14,6 +14,12 @@ import { ProjectsComponent } from './account-list/projects/projects.component';
 import { ProjectDetailComponent } from './account-list/projects/project-detail/project-detail.component';
 import { AppService } from './app/app.service';
 
+// ADMIN PANEL
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { SettingsAdminComponent } from './admin-panel/settings-admin/settings-admin.component';
+import { AboutAdminComponent } from './admin-panel/about-admin/about-admin.component';
+import { PortfolioAdminComponent } from './admin-panel/portfolio-admin/portfolio-admin.component';
+
 import { AboutComponent } from './about/about.component';
 
 import { ContactComponent } from './contact/contact.component';
@@ -25,10 +31,10 @@ const routing = RouterModule.forRoot([
     { path: '', component: WelcomeComponent },
     { path: 'account-list', component: AccountListComponent },
     { path: 'contact', component: ContactComponent },
-    { path: 'detail/:id', component: ProjectDetailComponent },
+    { path: 'detail/:url', component: ProjectDetailComponent },
     { path: 'about', component: AboutComponent },
+    { path: 'admin', component: AdminPanelComponent}
 ]);
-
 
 @NgModule({
     imports: [BrowserModule,
@@ -44,6 +50,11 @@ const routing = RouterModule.forRoot([
         ProjectDetailComponent,
         AboutComponent,
         ContactComponent,
+        AdminPanelComponent,
+        SettingsAdminComponent,
+        AboutAdminComponent,
+        PortfolioAdminComponent,
+
              ],
     providers: [AppService],
     bootstrap: [AppComponent]

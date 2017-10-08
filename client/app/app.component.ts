@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
     selector:'my-app',
@@ -6,11 +6,11 @@ import {Component} from "@angular/core";
     styles: [require('./app.component.scss')],
 
 })
-export class AppComponent{
+export class AppComponent{ 
     isOpen: boolean = false;
 
     toggle() {
         this.isOpen = !this.isOpen;
     }
-    
+
 }

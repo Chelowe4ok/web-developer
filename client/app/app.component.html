@@ -1,33 +1,33 @@
 <div class='content'>
-    <div class="menu-btn">
-        <div id="nav-icon2" [ngClass]="{'open': isOpen}" (click)="toggle()">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+    <div class="menu">
+        <div class="menu-btn">
+            <div id="nav-icon2" [ngClass]="{'open': isOpen}" (click)="toggle()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
+        <div [ngClass]="{'active': isOpen}" class="background-effect"></div>
+        <nav [ngClass]="{'active': isOpen}" class="navbar">
+            <div class="main-nav nav-content">
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/']">Home</a></li>
+                    <li><a [routerLink]="['/about']">About Me</a></li>
+                    <li><a [routerLink]="['/account-list']">My projects</a></li>
+                    <li><a [routerLink]="['/contact']">Contats</a></li>
+                </ul>
+            </div>
+            <div class="sub-nav nav-content">
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/']">Facebook</a></li>
+                    <li><a [routerLink]="['/account-list']">LindkedIn</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-    <div  [ngClass]="{'active': isOpen}" class="background-effect"></div>
-    <nav [ngClass]="{'active': isOpen}" class="navbar">
-        <div class="main-nav nav-content">
-            <ul class='nav navbar-nav'>
-                <li><a [routerLink]="['/']">Home</a></li>
-                <li><a [routerLink]="['/about']">About Me</a></li>
-                <li><a [routerLink]="['/account-list']">My projects</a></li>
-                <li><a [routerLink]="['/contact']">Contats</a></li>
-            </ul>
-        </div>
-        <div class="sub-nav nav-content">
-            <ul class='nav navbar-nav'>
-                <li><a [routerLink]="['/']">Facebook</a></li>
-                <li><a [routerLink]="['/account-list']">LindkedIn</a></li>
-            </ul>
-        </div>
-    </nav>
-
-
     <div class='container'>
         <router-outlet></router-outlet>
     </div>

@@ -23,11 +23,8 @@ export class ProjectsComponent {
         this.service.getProjects().then(projects => this.projects = projects);
     }
 
-    onSelect(project: Project): void {
+    gotoDetail(project): void {
         this.selectedProject = project;
-    }
-
-    gotoDetail(): void {
-        this.router.navigate(['/detail', this.selectedProject.id]);
+        this.router.navigate(['/detail', project.url]);
     }
 }

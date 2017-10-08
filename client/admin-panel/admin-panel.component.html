@@ -1,0 +1,24 @@
+
+<div *ngIf="isLogged;else logged" class="login">
+    <input type="email" />
+    <input type="password" />
+</div>
+
+<ng-template #logged>
+    <div class="wrapper">
+        <div class="col-xs-4 tab" (click)="showOptions('About')">
+            about
+        </div>
+        <div class="col-xs-4 tab" (click)="showOptions('Portfolio')">
+            portfolio
+        </div>
+        <div class="col-xs-4 tab" (click)="showOptions('Settings')">
+            settings
+        </div>
+        <div class="col-xs-12">
+            <div *ngIf="isAbout"><about-admin></about-admin></div>
+            <div *ngIf="isPortfolio"><portfolio-admin></portfolio-admin></div>
+            <div *ngIf="isSettings"><settings-admin></settings-admin></div>
+        </div>
+    </div>
+</ng-template>

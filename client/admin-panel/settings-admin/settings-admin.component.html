@@ -1,0 +1,50 @@
+<h1>Settings</h1>
+
+<form [formGroup]="settingsForm" (ngSubmit)="onSubmit(settingsForm.value)">
+    <div>
+        <label>
+            Email
+            <input type="email" name="email" formControlName="email" />
+        </label>
+        <div *ngIf="!settingsForm.controls['email'].valid && settingsForm.controls['email'].touched"
+             >
+            <div *ngIf="settingsForm.controls['email'].errors.required">
+                Email is required.
+            </div>
+            <div *ngIf="!settingsForm.controls['email'].errors.required && settingsForm.controls['email'].errors.email">
+                Set correct email address.
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>
+            Phone
+            <input type="tel" name="phone" formControlName="phone" />
+        </label>
+        <div *ngIf="!settingsForm.controls['phone'].valid && settingsForm.controls['phone'].touched"
+             class="alert alert-danger">
+            <div *ngIf="settingsForm.controls['phone'].errors.required">
+                phone is required.
+            </div>
+            <div *ngIf="!settingsForm.controls['phone'].errors.required && settingsForm.controls['phone'].errors.minlength">
+                must be more than 7 numbers 
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>
+            Resume
+            <input type="file" name="resume" formControlName="resume" />
+        </label>
+    </div>
+    <div>
+        <button type="submit"
+                [disabled]="!settingsForm.valid" class="btn btn-success">
+            Save
+        </button> &nbsp;
+        <button type="reset" (click)="revert()"
+                [disabled]="settingsForm.pristine" class="btn btn-danger">
+            Revert
+        </button>
+    </div>
+</form>

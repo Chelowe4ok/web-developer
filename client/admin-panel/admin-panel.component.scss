@@ -1,0 +1,29 @@
+
+.wrapper {
+    color: #000;
+    height: 100%;
+    background: #eee;
+}
+
+.tab {
+    background: #2e9fa0;
+    border: 1px solid #000;
+    font-size: 2em;
+}
+
+.tab:hover {
+    background: #4aeff0;
+    cursor: pointer;
+}
+
+.login {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -90px;
+}
+
+input {
+    display: block;
+    margin: 10px;
+}

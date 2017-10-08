@@ -6,14 +6,15 @@ import { Component, ElementRef, Renderer, ViewChild } from '@angular/core';
     styles: [require('./about.component.scss')]
 })
 export class AboutComponent {
-    @ViewChild('effect') effect: ElementRef;
+    @ViewChild('photoEffect') photoEffect: ElementRef;
 
     constructor(private el: ElementRef, private rd: Renderer) { }
     loadPhoto(elem) {
-        console.log(elem);
-    }
-    ngOnInit() {
-        console.log(this.effect.nativeElement);
-
+        console.log();
+        let photoWidth = elem.path[0].offsetWidth;
+        let photoHeight = elem.path[0].offsetHeight;
+        this.photoEffect.nativeElement.style.height = photoHeight;
+        this.photoEffect.nativeElement.style.width = photoWidth;
+        this.photoEffect.nativeElement.classList.add('active');
     }
 }

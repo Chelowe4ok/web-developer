@@ -4,6 +4,8 @@ var express = require('express');
 var morgan = require('morgan'); 
 var bodyParser = require('body-parser');
 var path = require("path");
+const http = require('http');
+const api = require('./routes/api');
 
 var app = express();
 app.set('port', (process.env.PORT || 5000));
@@ -14,6 +16,9 @@ app.use('/scripts', express.static(__dirname + '/../node_modules'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Set our api routes 
+app.use('/api', api);
 
 app.use(morgan('dev'));
 
@@ -28,15 +33,28 @@ app.use(function (req, res, next) {
     }
 });
 
-app.get('/cool', function(request, response) {
-  response.send(cool());
-});
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1) // trust first proxy
+}
 
-app.get('/app', function (request, response) {
-    console.log('app status 200');
-    response.sendStatus(200);
-});
 
-app.listen(app.get('port'), function() {
+
+const server = http.createServer(app);
+
+server.listen(app.get('port'), function() {
     console.log('Angular2 fullstack listening on port '+app.get('port'));
+});
+
+//Models
+var models = require("./db/models");
+ 
+//Sync Database
+models.sequelize.sync().then(function() {
+ 
+    console.log('Nice! Database looks fine')
+ 
+}).catch(function(err) {
+ 
+    console.log(err, "Something went wrong with the Database Update!")
+ 
 });

@@ -1,0 +1,45 @@
+<h1>about-admin</h1>
+<form [formGroup]="aboutForm" (ngSubmit)="onSubmit(aboutForm.value)">
+    <div>
+        <label>header</label>
+        <input type="text" formControlName="header" />
+
+        <div *ngIf="!aboutForm.controls['header'].valid && aboutForm.controls['header'].touched"  class="alert alert-danger">
+            <div *ngIf="aboutForm.controls['header'].errors.required">
+                Header is required!
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>description</label>
+        <textarea rows="4" cols="50" formControlName="description"></textarea>
+        <div *ngIf="!aboutForm.controls['description'].valid && aboutForm.controls['description'].touched" class="alert alert-danger">
+            <div *ngIf="aboutForm.controls['description'].errors.required">
+                Description is required!
+            </div>
+            <div *ngIf="aboutForm.controls['description'].errors.minlength">
+                Minimum length should be 50 characters!
+            </div>
+        </div>
+    </div>
+    <div>
+        <label>skills</label>
+       
+        <div formArrayName="skills">
+            <ul>
+                <li *ngFor="let item of skillsControls.controls; let i = index">
+                    <input type="text" formControlName="{{i}}" />
+                    <div class="btn btn-danger" (click)="removeSkill(i)">Remove</div>
+                </li>
+            </ul>
+            <div class="btn btn-success" (click)="addSkill()">add new skill</div>           
+        </div>
+
+    </div>
+    <div>
+        <button type="submit"
+                [disabled]="!aboutForm.valid" class="btn btn-success">
+            Save
+        </button>
+    </div>
+</form>
