@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class AppService {
 
-    private adminUrls = { settings: 'api/settings', about: 'api/aboutAdmin' };
+    private adminUrls = { admin: 'api/admin', settings: 'api/settings', about: 'api/aboutadmin' };
 
     constructor(private http: Http) { }
 
@@ -22,11 +22,17 @@ export class AppService {
 
     // Admin panel
 
-    getSettingsData(): Observable<Contact> {
+    getAdmin(): Observable<any> {
+        return this.http.get(this.adminUrls.admin).map(response => {
+            let data = response.json();
+            return data;
+        });
+    }
+
+    getSettingsData(): Observable<any> {
         return this.http.get(this.adminUrls.settings).map(response => {
             let data = response.json();
-            let contact = new Contact(data.email, data.phone, data.resume);
-            return contact;
+            return data;
         });
     }
 
@@ -35,6 +41,13 @@ export class AppService {
             let data = response.json();
             let contact = new Contact(data.email, data.phone, data.resume);
             return contact;
+        });
+    }
+
+    getAboutData(): Observable<any> {
+        return this.http.get(this.adminUrls.about).map(response => {
+            let data = response.json();
+            return data;
         });
     }
 

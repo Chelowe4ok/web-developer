@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { AppService } from './../app/app.service';
 
 @Component({
     selector: 'admin-panel',
@@ -6,11 +7,16 @@ import {Component} from '@angular/core';
     styles: [require('./admin-panel.component.scss')]
 })
 export class AdminPanelComponent{
-    isLogged : boolean = false;
+    isLogged : boolean = true;
     isAbout: boolean = false;
     isPortfolio: boolean = false;
     isSettings: boolean = false;
-    constructor() { }
+    constructor(private service: AppService) { }
+
+    ngOnInit() {
+        this.service.getAdmin().subscribe(response => {
+        });
+    }
 
     showOptions(tab) {
 

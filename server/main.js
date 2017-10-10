@@ -2,6 +2,9 @@ var cool = require('cool-ascii-faces');
 
 var express = require('express');
 var morgan = require('morgan'); 
+var passport = require('passport');
+var session = require('express-session');
+var Strategy = require('passport-local').Strategy;
 var bodyParser = require('body-parser');
 var path = require("path");
 const http = require('http');
@@ -16,6 +19,26 @@ app.use('/scripts', express.static(__dirname + '/../node_modules'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// For Passport
+
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+passport.use(new Strategy(
+  function(username, password, cb) {
+      return cb(null, true);
+  }));
+
+
+passport.serializeUser(function(user, cb) {
+  cb(null, true);
+});
+
+passport.deserializeUser(function(id, cb) {
+    cb(null, true);
+});
 
 // Set our api routes 
 app.use('/api', api);
@@ -43,18 +66,4 @@ const server = http.createServer(app);
 
 server.listen(app.get('port'), function() {
     console.log('Angular2 fullstack listening on port '+app.get('port'));
-});
-
-//Models
-var models = require("./db/models");
- 
-//Sync Database
-models.sequelize.sync().then(function() {
- 
-    console.log('Nice! Database looks fine')
- 
-}).catch(function(err) {
- 
-    console.log(err, "Something went wrong with the Database Update!")
- 
 });

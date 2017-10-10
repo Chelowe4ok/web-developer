@@ -1,7 +1,7 @@
 
 <div *ngIf="isLogged;else logged" class="login">
-    <input type="email" />
-    <input type="password" />
+    <label for="password">Password:</label>
+    <input type="password" name="password" />
 </div>
 
 <ng-template #logged>

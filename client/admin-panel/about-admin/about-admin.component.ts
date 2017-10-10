@@ -15,6 +15,19 @@ export class AboutAdminComponent {
     constructor(private fb: FormBuilder, private service: AppService) { }
 
     ngOnInit() {
+        this.service.getAboutData().subscribe(response => {
+
+            response.skills.forEach(skill => {
+                this.skillsControls.push(this.fb.control(skill));
+            });
+            
+            this.aboutForm.setValue({
+                'header': response.header,
+                'description': response.description,
+                'skills': null
+            });
+        });
+
         this.createForm();
     }
 
@@ -29,7 +42,9 @@ export class AboutAdminComponent {
     }
 
     onSubmit(data) {
-        
+        this.service.updateAboutData(data).subscribe(response => {
+            console.log('data update successful');
+        });
     }
 
     addSkill() {

@@ -27,15 +27,18 @@ export class SettingsAdminComponent {
     constructor(private fb: FormBuilder, private service: AppService) { }
 
     ngOnInit() {
+        this.service.getSettingsData().subscribe(response => {
+            this.settingsForm.setValue(response)
+        });
+        
         this.createForm();
-        this.service.getSettingsData().subscribe(response => this.contact = response);
     }
 
     createForm() {
         this.settingsForm = this.fb.group({
             'email': new FormControl(null, [Validators.required, Validators.email]),
             'phone': new FormControl(null, [Validators.required, Validators.minLength(7)]),
-            'resume': new FormControl('')
+            'resume': new FormControl(null)
         });
     }
 
